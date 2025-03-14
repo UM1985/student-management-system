@@ -58,7 +58,7 @@ public:
 };
 
 int main() {
-    StudentManagement<double> sm; // Using double for marks
+    StudentManagement<double> sm; 
     int choice, id;
     string name;
     double marks;
@@ -94,10 +94,10 @@ int main() {
                 sm.searchStudent(id);
                 break;
             case 5:
-                cout << "Exiting program...\n";
+                cout << "Exiting program..."<<endl;
                 return 0;
             default:
-                cout << "Invalid choice, try again!\n";
+                cout << "Invalid choice, try again!"<<endl;
         }
     }
     return 0;
