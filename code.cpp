@@ -9,27 +9,26 @@ private:
     struct Student {
         int id;
         string name;
-        T marks;
     };
     
     vector<Student> students;
 
 public:
     // Add a student to the list
-    void addStudent(int id, string name, T marks) {
-        students.push_back({id, name, marks});
-        cout << "Student added successfully!\n";
+    void addStudent(int id, string name) {
+        students.push_back({id, name});
+        cout << "Student added successfully!"<<endl;
     }
     
     // Display all students
     void displayStudents() {
         if (students.empty()) {
-            cout << "No students found!\n";
+            cout << "No students found!"<<endl;
             return;
         }
         cout << "\nList of Students:" << endl;
         for (const auto& student : students) {
-            cout << "ID: " << student.id << ", Name: " << student.name << ", Marks: " << student.marks << endl;
+            cout << "ID: " << student.id << ", Name: " << student.name  << endl;
         }
     }
     
@@ -38,18 +37,18 @@ public:
         for (auto it = students.begin(); it != students.end(); ++it) {
             if (it->id == id) {
                 students.erase(it);
-                cout << "Student removed successfully!\n";
+                cout << "Student removed successfully!"<<endl;
                 return;
             }
         }
-        cout << "Student with ID " << id << " not found!\n";
+        cout << "Student with ID " << id << " not found!"<<endl;
     }
     
     // Search student by ID
     void searchStudent(int id) {
         for (const auto& student : students) {
             if (student.id == id) {
-                cout << "Student Found - ID: " << student.id << ", Name: " << student.name << ", Marks: " << student.marks << endl;
+                cout << "Student Found - ID: " << student.id << ", Name: " << student.name<< endl;
                 return;
             }
         }
@@ -61,7 +60,6 @@ int main() {
     StudentManagement<double> sm; 
     int choice, id;
     string name;
-    double marks;
     
     while (true) {
         cout << "\nStudent Management System";
@@ -76,9 +74,7 @@ int main() {
                 cout << "Enter Name: ";
                 cin.ignore();
                 getline(cin, name);
-                cout << "Enter Marks: ";
-                cin >> marks;
-                sm.addStudent(id, name, marks);
+                sm.addStudent(id, name);
                 break;
             case 2:
                 sm.displayStudents();
